@@ -1,0 +1,117 @@
+{
+	"folders": [
+		{
+			"name": "local-lambda",
+			"path": "../.."
+		}
+	],
+	"launch": {
+		"configurations": [
+			{
+				"type": "aws-sam",
+				"request": "direct-invoke",
+				"name": "local-lambda:HelloWorldFunction (python3.9)",
+				"invokeTarget": {
+					"target": "template",
+					"templatePath": "${workspaceFolder}/local-lambda/template.yaml",
+					"logicalId": "HelloWorldFunction"
+				},
+				"lambda": {
+					"payload": {},
+					"environmentVariables": {},
+					"runtime": "python3.9"
+				}
+			},
+			{
+				"type": "aws-sam",
+				"request": "direct-invoke",
+				"name": "API local-lambda:HelloWorldFunction (python3.9)",
+				"invokeTarget": {
+					"target": "api",
+					"templatePath": "${workspaceFolder}/local-lambda/template.yaml",
+					"logicalId": "HelloWorldFunction"
+				},
+				"api": {
+					"path": "/hello",
+					"httpMethod": "get",
+					"payload": {
+						"json": {}
+					}
+				},
+				"lambda": {
+					"runtime": "python3.9"
+				}
+			},
+			{
+				"type": "aws-sam",
+				"request": "direct-invoke",
+				"name": "lambda-local:HelloWorldFunction (python3.7)",
+				"invokeTarget": {
+					"target": "template",
+					"templatePath": "${workspaceFolder}/lambda-local/template.yaml",
+					"logicalId": "HelloWorldFunction"
+				},
+				"lambda": {
+					"payload": {},
+					"environmentVariables": {},
+					"runtime": "python3.7"
+				}
+			},
+			{
+				"type": "aws-sam",
+				"request": "direct-invoke",
+				"name": "API lambda-local:HelloWorldFunction (python3.7)",
+				"invokeTarget": {
+					"target": "api",
+					"templatePath": "${workspaceFolder}/lambda-local/template.yaml",
+					"logicalId": "HelloWorldFunction"
+				},
+				"api": {
+					"path": "/hello",
+					"httpMethod": "get",
+					"payload": {
+						"json": {}
+					}
+				},
+				"lambda": {
+					"runtime": "python3.7"
+				}
+			},
+			{
+				"type": "aws-sam",
+				"request": "direct-invoke",
+				"name": "local-lamda-test:HelloWorldFunction (python3.7)",
+				"invokeTarget": {
+					"target": "template",
+					"templatePath": "${workspaceFolder}/local-lamda-test/template.yaml",
+					"logicalId": "HelloWorldFunction"
+				},
+				"lambda": {
+					"payload": {},
+					"environmentVariables": {},
+					"runtime": "python3.7"
+				}
+			},
+			{
+				"type": "aws-sam",
+				"request": "direct-invoke",
+				"name": "API local-lamda-test:HelloWorldFunction (python3.7)",
+				"invokeTarget": {
+					"target": "api",
+					"templatePath": "${workspaceFolder}/local-lamda-test/template.yaml",
+					"logicalId": "HelloWorldFunction"
+				},
+				"api": {
+					"path": "/hello",
+					"httpMethod": "get",
+					"payload": {
+						"json": {}
+					}
+				},
+				"lambda": {
+					"runtime": "python3.7"
+				}
+			}
+		]
+	}
+}

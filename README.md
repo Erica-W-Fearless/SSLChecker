@@ -3,19 +3,17 @@
 ----SSLChecker AWS lambda function-----
 
 The Purpose of this tool is to check the status of SSL expiration for a list of domains.
-list of domains can be provided and placed into an S3 bucket, and referenced in this function.
+List of domains can be provided and placed into an S3 bucket, and referenced in this function.
 
-The function is apart of an AWS Cloud Formation Stack- this function would be invokded by an AWS API Gateway via a GET response.
+The function is apart of an AWS Cloud Formation Stack- this function would be invoked by an AWS API Gateway via a GET method.
 
-The lambda function will retrieve the list of domains and then iterate through it to check if the SSL is valid, retrieve the exipration date, and then provide warning if exiration is coming up within a 2 week period based off of the "notAfter" date retrieved via certificate details for the domain.
+The lambda function will check a domain and then check if the SSL is valid, retrieve the exipration date, and then provide warning if exiration is coming up within a 2 week period based off of the "notAfter" date retrieved via certificate details for the domain.
 
 The logs can then be stored into an S3 bucket, and an SNS notifcication topic can be set up to send alerts based on status
 
 Chron job can then be added to invoke the application at a given time interval.
 
-AWS Code pipeline is set up for CI/CD build and deployment with this github repo so that in the event that any packages need to be updates, modifications etc, they can be updated with the "change" action
-
--------- the current Application will only check for google.com-----
+AWS Code pipeline is set up for CI/CD build and deployment with this github repo so that in the event that any packages need to be updates, modifications etc, can be automated
 
 EXAMPLE of Response from invocation:
 
@@ -39,5 +37,4 @@ REPORT RequestId: 89ad60aa-234e-4a91-b083-e6c6518af887 Duration: 295.70 ms Bille
 
 ---
 
-TEST
 invokation URL: https://ozltfq4jrf.execute-api.us-east-2.amazonaws.com/testsandbox/
